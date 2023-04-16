@@ -1,7 +1,3 @@
-// slot reel
-// take in a list of symbols
-// animate the reel
-// phaser 3
 import Symbol from './Symbol.js';
 
 class Reel extends Phaser.GameObjects.Container {
@@ -31,16 +27,11 @@ class Reel extends Phaser.GameObjects.Container {
             }
         }
         var index = weightedRandom(this.symbols.map(s => s.weight));
-        // var index = Phaser.Math.Between(0, this.symbols.length - 1);
         var symbol = this.symbols[index];
         this.add(new Symbol(this.scene, 0, y, symbol.asset, 0, symbol.value, symbol.name));
     }
 
     spin() {
-        // replace all symbols with new random symbols
-        let newSymbols = [];
-        const oldSymbols = this.list.length
-
         for (var i = this.list.length - 1; i >= 0; i--) {
             this.list[i].destroy();
         }
@@ -51,13 +42,9 @@ class Reel extends Phaser.GameObjects.Container {
         }
     }
 
-    stop() {
+    stop() {}
 
-    }
-
-    reset() {
-
-    }
+    reset() {}
 }
 
 export default Reel;

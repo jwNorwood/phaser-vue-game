@@ -31,12 +31,7 @@ class Board extends Phaser.GameObjects.Container {
         this.reels.forEach(function (reel) {
             reel.spin();
         });
-        
-        // call this.findMatches() after 500ms
-
-        // delayed function
-        this.scene.time.delayedCall(1000, this.findMatches, [], this);
-
+        this.scene.time.delayedCall(100, this.findMatches, [], this);
     }
 
     stop() {
