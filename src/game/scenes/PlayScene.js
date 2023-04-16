@@ -1,25 +1,29 @@
-import { Scene } from 'phaser'
+import {
+  Scene
+} from 'phaser'
+import Board from '../components/Board'
+import symbols from '../constants/symbols'
 
 export default class PlayScene extends Scene {
-  constructor () {
-    super({ key: 'PlayScene' })
-  }
-
-  create () {
-    this.add.image(400, 300, 'sky')
-
-    const bomb = this.physics.add.image(400, 200, 'bomb')
-    bomb.setCollideWorldBounds(true)
-    bomb.body.onWorldBounds = true // enable worldbounds collision event
-    bomb.setBounce(1)
-    bomb.setVelocity(200, 20)
-
-    this.sound.add('thud')
-    this.physics.world.on('worldbounds', () => {
-      this.sound.play('thud', { volume: 0.75 })
+  constructor() {
+    super({
+      key: 'PlayScene'
     })
   }
 
-  update () {
+  create() {
+    this.add.image(400, 300, 'sky')
+
+    const board = new Board(this, 50, 50, symbols, 10, 14)
+    this.add.existing(board)
+
+    this.add.text(400, 550, 'Spin', {
+      font: '24px Arial',
+      fill: '#fff'
+    }).setOrigin(0.5).setInteractive().on('pointerdown', function () {
+      board.spin()
+    })
   }
+
+  update() {}
 }
