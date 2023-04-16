@@ -1,8 +1,3 @@
-// board is made of several reels
-// each reel is made of several symbols
-// take in number of rows and columns
-// take in list of symbols
-// symbols contain name, value, sprite
 import Reel from './Reel.js';
 
 class Board extends Phaser.GameObjects.Container {
