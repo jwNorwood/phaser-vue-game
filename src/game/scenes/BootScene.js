@@ -5,6 +5,8 @@ import coins from '@/game/assets/coins.png'
 import gem from '@/game/assets/gem.png'
 import orange from '@/game/assets/orange.png'
 import green from '@/game/assets/green.png'
+import wild from '@/game/assets/wild.png'
+import jackpot from '@/game/assets/jackpot.png'
 
 export default class BootScene extends Scene {
   constructor () {
@@ -18,6 +20,8 @@ export default class BootScene extends Scene {
     this.load.image('gem', gem)
     this.load.image('orange', orange)
     this.load.image('green', green)
+    this.load.image('wild', wild)
+    this.load.image('jackpot', jackpot)
   }
 
   create () {
